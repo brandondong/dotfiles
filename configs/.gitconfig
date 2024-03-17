@@ -1,0 +1,35 @@
+[user]
+	email = brandondong96@gmail.com
+	name = Brandon
+[core]
+	editor = micro
+	autocrlf = input
+[pull]
+	ff = only
+
+[core]
+	pager = delta
+[interactive]
+	diffFilter = delta --color-only
+[delta]
+	line-numbers = true
+	navigate = true
+	side-by-side = true
+	# Force line wrapping and left-aligned.
+	wrap-max-lines = unlimited
+	wrap-right-percent = 0.01
+	wrap-left-symbol = " "
+	# Try to use terminal colors for everything except highlighted line backgrounds.
+	syntax-theme = gruvbox-dark
+	line-numbers-plus-style = brightgreen
+	line-numbers-minus-style = brightred
+	line-numbers-zero-style = brightblack
+	file-added-label = [+]
+	file-copied-label = [==]
+	file-modified-label = [*]
+	file-removed-label = [-]
+	file-renamed-label = [->]
+[merge]
+	conflictstyle = diff3
+[diff]
+	colorMoved = default

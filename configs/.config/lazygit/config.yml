@@ -1,0 +1,48 @@
+gui:
+  scrollPastBottom: false
+  skipRewordInEditorWarning: true
+  skipDiscardChangeWarning: true
+  mainPanelSplitMode: 'vertical'
+  animateExplosion: false
+  mouseEvents: false
+  switchTabsWithPanelJumpKeys: true
+  authorColors:
+    'Brandon': 'blue'
+git:
+  autoFetch: false
+  autoRefresh: false
+  autoStageResolvedConflicts: false
+os:
+  editPreset: 'micro'
+update:
+  method: never
+notARepository: 'quit'
+customCommands:
+  - key: '<c-j>'
+    context: 'localBranches'
+    command: 'gsm merge "{{.SelectedLocalBranch.Name}}"'
+    prompts:
+    - type: 'confirm'
+      title: 'Merge from master'
+      body: 'Are you sure you want to merge master into this branch?'
+  - key: '<c-u>'
+    context: 'localBranches'
+    command: 'gsm merge-collapse "{{.SelectedLocalBranch.Name}}"'
+    prompts:
+    - type: 'confirm'
+      title: 'Merge from master'
+      body: 'Are you sure you want to merge master into this branch?'
+  - key: '<c-k>'
+    context: 'localBranches'
+    command: 'gsm rebase "{{.SelectedLocalBranch.Name}}"'
+    prompts:
+    - type: 'confirm'
+      title: 'Rebase onto master'
+      body: 'Are you sure you want to rebase this branch onto master?'
+  - key: '<c-l>'
+    context: 'files,localBranches'
+    command: 'gsm'
+    prompts:
+    - type: 'confirm'
+      title: 'Continue merge/rebase'
+      body: 'Are you sure you want to continue the merge/rebase operation?'

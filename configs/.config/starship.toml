@@ -1,0 +1,28 @@
+# Default format ($all) with all languages disabled and only a minimal set of tools left.
+format = """
+$username\
+$hostname\
+$directory\
+$git_branch\
+$git_commit\
+$git_state\
+$git_status\
+$line_break\
+$character"""
+
+[directory]
+use_os_path_sep = false
+truncate_to_repo = false
+truncation_length = 0
+
+[git_branch]
+symbol = ''
+
+[git_status]
+# Default format with $all_status expanded, $stashed removed, and some rearranging.
+format = '([($conflicted )(\[$staged$deleted$renamed$modified$untracked\])(\[$ahead_behind\])]($style))'
+conflicted = 'CONFLICT'
+
+[character]
+success_symbol = '[>](bold green)'
+error_symbol = '[>](bold red)'
