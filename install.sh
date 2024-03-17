@@ -12,7 +12,8 @@ sudo pacman -S --needed --noconfirm \
   stow \
   openssh \
   neofetch \
-  ripgrep
+  ripgrep \
+  zip
 
 # Stow configuration files.
 stow -d "./configs/" -t "$HOME/" --no-folding --restow .

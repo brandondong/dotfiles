@@ -22,3 +22,7 @@ symbol = ''
 # Default format with $all_status expanded, $stashed removed, and some rearranging.
 format = '([($conflicted )(\[$staged$deleted$renamed$modified$untracked\])(\[$ahead_behind\])]($style))'
 conflicted = 'CONFLICT'
+
+[character]
+success_symbol = '[>](bold green)'
+error_symbol = '[>](bold red)'
