@@ -1,0 +1,12 @@
+gui:
+  scrollPastBottom: false
+  skipRewordInEditorWarning: true
+  mainPanelSplitMode: 'vertical'
+  animateExplosion: false
+  authorColors:
+    'Brandon': 'blue'
+git:
+  autoFetch: false
+update:
+  method: never
+notARepository: 'quit'
