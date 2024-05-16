@@ -13,7 +13,10 @@ sudo pacman -S --needed --noconfirm \
   openssh \
   neofetch \
   ripgrep \
-  zip
+  fzf \
+  zip \
+  unzip \
+  imagemagick
 
 # Stow configuration files.
 stow -d "./configs/" -t "${HOME}/" --no-folding --restow .
@@ -24,7 +27,7 @@ if [ $(getent passwd $LOGNAME | cut -d: -f7) != "${fish_path}" ]; then
   chsh -s "${fish_path}"
 fi;
 
-# Add ssh keys.
+# Add Github ssh key.
 ssh_github_key="${HOME}/.ssh/id_github"
 if [ ! -f "${ssh_github_key}" ]; then
   ssh-keygen -t ed25519 -N "" -C "github" -f "${ssh_github_key}"

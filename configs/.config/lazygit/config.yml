@@ -1,12 +1,18 @@
 gui:
   scrollPastBottom: false
   skipRewordInEditorWarning: true
+  skipDiscardChangeWarning: true
   mainPanelSplitMode: 'vertical'
   animateExplosion: false
+  mouseEvents: false
   authorColors:
     'Brandon': 'blue'
 git:
   autoFetch: false
+  autoRefresh: false
+  autoStageResolvedConflicts: false
+os:
+  editPreset: 'micro'
 update:
   method: never
 notARepository: 'quit'

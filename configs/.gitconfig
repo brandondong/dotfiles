@@ -3,6 +3,7 @@
 	name = Brandon
 [core]
 	editor = micro
+	autocrlf = input
 [pull]
 	ff = only
 
