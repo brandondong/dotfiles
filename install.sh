@@ -16,16 +16,27 @@ sudo pacman -S --needed --noconfirm \
   fzf \
   zip \
   unzip \
-  imagemagick
+  imagemagick \
+  base-devel
 
 # Stow configuration files.
 stow -d "./configs/" -t "${HOME}/" --no-folding --restow .
 
-# Set login shell if not already fish (https://stackoverflow.com/a/11059152)
+# Set login shell if not already fish (https://stackoverflow.com/a/11059152).
 fish_path="/usr/bin/fish"
 if [ $(getent passwd $LOGNAME | cut -d: -f7) != "${fish_path}" ]; then
   chsh -s "${fish_path}"
 fi;
+
+# Set up AUR.
+if ! command -v yay 2>&1 >/dev/null
+then
+  git clone https://aur.archlinux.org/yay-bin.git
+  cd yay-bin
+  makepkg -si
+  cd ../
+  rm -rf yay-bin/
+fi
 
 # Add Github ssh key.
 ssh_github_key="${HOME}/.ssh/id_github"
