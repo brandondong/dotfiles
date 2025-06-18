@@ -11,12 +11,13 @@ sudo pacman -S --needed --noconfirm \
   micro \
   stow \
   openssh \
-  neofetch \
   ripgrep \
   fzf \
   zip \
   unzip \
   imagemagick \
+  ffmpeg \
+  yt-dlp \
   base-devel
 
 # Stow configuration files.
