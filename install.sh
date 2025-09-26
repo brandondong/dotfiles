@@ -34,7 +34,7 @@ if ! command -v yay 2>&1 >/dev/null
 then
   git clone https://aur.archlinux.org/yay-bin.git
   cd yay-bin
-  makepkg -si
+  makepkg -si --noconfirm
   cd ../
   rm -rf yay-bin/
 fi
