@@ -1,7 +1,7 @@
 #!/bin/sh
 set -e
 
-if [[ $EUID -eq 0 ]]; then
+if [ "$(id -u)" = 0 ]; then
   echo "This script should not be run as root."
   exit 1
 fi
@@ -25,19 +25,19 @@ stow -d "./configs/" -t "${HOME}/" --no-folding --restow .
 
 # Set login shell if not already fish (https://stackoverflow.com/a/11059152).
 fish_path="/usr/bin/fish"
-if [ $(getent passwd $LOGNAME | cut -d: -f7) != "${fish_path}" ]; then
+if [ "$(getent passwd "${LOGNAME}" | cut -d: -f7)" != "${fish_path}" ]; then
   chsh -s "${fish_path}"
 fi;
 
 # Set up AUR.
-if ! command -v yay 2>&1 >/dev/null
+if ! command -v yay > /dev/null 2>&1
 then
   temp_yay_bin_path="yay-bin-temp"
   git clone https://aur.archlinux.org/yay-bin.git "${temp_yay_bin_path}"
   cd "${temp_yay_bin_path}"
   makepkg -si --noconfirm
   cd ../
-  rm -rf "${temp_yay_bin_path}/"
+  rm -rf "${temp_yay_bin_path}"
 fi
 
 # Add Github ssh key.
