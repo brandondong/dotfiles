@@ -1,8 +1,7 @@
 set -U fish_greeting
 
-starship init fish | source
-zoxide init --no-cmd fish | source
-fzf --fish | source
+alias lg=lazygit
 
-abbr --add cd __zoxide_z
-abbr --add lg lazygit
+starship init fish | source
+zoxide init --cmd cd fish | source
+fzf --fish | source

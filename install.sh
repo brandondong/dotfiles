@@ -18,7 +18,8 @@ sudo pacman -S --needed --noconfirm \
   openssh \
   ripgrep \
   fzf \
-  base-devel
+  base-devel \
+  pacman-contrib
 
 # Stow configuration files.
 stow -d "./configs/" -t "${HOME}/" --no-folding --restow .
@@ -34,10 +35,14 @@ if ! command -v yay > /dev/null 2>&1
 then
   temp_yay_bin_path="yay-bin-temp"
   git clone https://aur.archlinux.org/yay-bin.git "${temp_yay_bin_path}"
-  cd "${temp_yay_bin_path}"
-  makepkg -si --noconfirm
-  cd ../
+  makepkg -si --noconfirm --dir "${temp_yay_bin_path}"
   rm -rf "${temp_yay_bin_path}"
+fi
+
+# Configure pacman cache cleaning (https://wiki.archlinux.org/title/Pacman#Cleaning_the_package_cache).
+if ! systemctl is-enabled paccache.timer --quiet
+then
+  sudo systemctl enable --now paccache.timer
 fi
 
 # Add Github ssh key.
