@@ -6,6 +6,8 @@ gui:
   animateExplosion: false
   mouseEvents: false
   switchTabsWithPanelJumpKeys: true
+  showRootItemInFileTree: false
+  useHunkModeInStagingView: false
   authorColors:
     'Brandon': 'blue'
 git:
