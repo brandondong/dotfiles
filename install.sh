@@ -29,11 +29,10 @@ stow -d "./configs/" -t "${HOME}/" --no-folding --restow .
 fish_path="/usr/bin/fish"
 if [ "$(getent passwd "${LOGNAME}" | cut -d: -f7)" != "${fish_path}" ]; then
   chsh -s "${fish_path}"
-fi;
+fi
 
 # Set up AUR.
-if ! command -v yay > /dev/null 2>&1
-then
+if ! command -v yay >/dev/null 2>&1; then
   temp_yay_bin_path="yay-bin-temp"
   git clone https://aur.archlinux.org/yay-bin.git "${temp_yay_bin_path}"
   makepkg -si --noconfirm --dir "${temp_yay_bin_path}"
@@ -43,12 +42,10 @@ fi
 # Configure pacman:
 # - Cleaning cache (https://wiki.archlinux.org/title/Pacman#Cleaning_the_package_cache)
 # - Updating mirror list (https://wiki.archlinux.org/title/Reflector#systemd_timer)
-if ! systemctl is-enabled paccache.timer --quiet
-then
+if ! systemctl is-enabled paccache.timer --quiet; then
   sudo systemctl enable --now paccache.timer
 fi
-if ! systemctl is-enabled reflector.timer --quiet
-then
+if ! systemctl is-enabled reflector.timer --quiet; then
   sudo systemctl enable --now reflector.timer
 fi
 
@@ -57,4 +54,4 @@ ssh_github_key="${HOME}/.ssh/id_github"
 if [ ! -f "${ssh_github_key}" ]; then
   ssh-keygen -t ed25519 -N "" -C "github" -f "${ssh_github_key}"
   ./copy_ssh.sh
-fi;
+fi

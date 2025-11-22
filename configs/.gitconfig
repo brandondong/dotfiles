@@ -6,6 +6,10 @@
 	autocrlf = input
 [pull]
 	ff = only
+[merge]
+	conflictstyle = diff3
+[advice]
+	defaultBranchName = false
 
 [core]
 	pager = delta
@@ -29,7 +33,5 @@
 	file-modified-label = [*]
 	file-removed-label = [-]
 	file-renamed-label = [->]
-[merge]
-	conflictstyle = diff3
 [diff]
 	colorMoved = default
