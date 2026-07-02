@@ -8,6 +8,8 @@
 	ff = only
 [merge]
 	conflictstyle = diff3
+[branch]
+	autoSetupMerge = simple
 [advice]
 	defaultBranchName = false
 
