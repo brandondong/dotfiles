@@ -4,6 +4,7 @@ set -x EDITOR micro
 set -x VISUAL micro
 
 fish_add_path ~/.cargo/bin/
+fish_add_path ~/go/bin/
 
 alias lg=lazygit
 
