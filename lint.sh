@@ -1,12 +1,10 @@
 #!/bin/sh
 set -e
 
-if ! command -v shellcheck >/dev/null 2>&1; then
-  sudo pacman -S --needed --noconfirm shellcheck
-fi
+./pacman_install.sh shellcheck
 
 if ! command -v shfmt >/dev/null 2>&1; then
-  sudo pacman -S --needed --noconfirm go
+  ./pacman_install.sh go
   go install mvdan.cc/sh/v3/cmd/shfmt@latest
 fi
 
