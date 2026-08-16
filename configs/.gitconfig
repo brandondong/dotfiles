@@ -4,6 +4,8 @@
 [core]
 	editor = micro
 	autocrlf = input
+	pager = delta
+	hooksPath = ~/.git-hooks
 [pull]
 	ff = only
 [merge]
@@ -13,9 +15,7 @@
 [advice]
 	defaultBranchName = false
 
-[core]
-	pager = delta
-	hooksPath = ~/.git-hooks
+# Delta settings:
 [interactive]
 	diffFilter = delta --color-only
 [delta]

@@ -8,4 +8,4 @@ fi
 
 ./pacman_install.sh yt-dlp
 
-yt-dlp -f "bv*[height<=1080]+ba" --merge-output-format mp4 -o "output.%(ext)s" "$1"
+yt-dlp -f bestaudio -o "output.%(ext)s" "$1"

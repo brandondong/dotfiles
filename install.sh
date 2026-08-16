@@ -2,7 +2,7 @@
 set -e
 
 if [ "$(id -u)" = 0 ]; then
-  echo "This script should not be run as root."
+  echo "This script should not be run as root." >&2
   exit 1
 fi
 
@@ -30,11 +30,12 @@ if [ "$(getent passwd "${LOGNAME}" | cut -d: -f7)" != "${fish_path}" ]; then
 fi
 
 # Configure pacman:
-# - Cleaning cache (https://wiki.archlinux.org/title/Pacman#Cleaning_the_package_cache)
-# - Updating mirror list (https://wiki.archlinux.org/title/Reflector#systemd_timer)
-if ! systemctl is-enabled paccache.timer --quiet; then
-  sudo systemctl enable --now paccache.timer
-fi
-if ! systemctl is-enabled reflector.timer --quiet; then
-  sudo systemctl enable --now reflector.timer
-fi
+# - Cleaning cache (https://wiki.archlinux.org/title/Pacman#Cleaning_the_package_cache).
+# - Updating mirror list (https://wiki.archlinux.org/title/Reflector#systemd_timer).
+start_service() {
+  if ! systemctl is-enabled "$1" --quiet; then
+    sudo systemctl enable --now "$1"
+  fi
+}
+start_service paccache.timer
+start_service reflector.timer
