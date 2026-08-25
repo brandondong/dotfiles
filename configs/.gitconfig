@@ -6,6 +6,9 @@
 	autocrlf = input
 	pager = delta
 	hooksPath = ~/.git-hooks
+	# See https://github.blog/engineering/infrastructure/improve-git-monorepo-performance-with-a-file-system-monitor.
+	fsmonitor = true
+	untrackedcache = true
 [pull]
 	ff = only
 [merge]

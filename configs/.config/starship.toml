@@ -9,6 +9,7 @@ $git_state\
 $git_status\
 $line_break\
 $character"""
+command_timeout = 30000
 
 [directory]
 use_os_path_sep = false
