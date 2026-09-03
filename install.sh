@@ -20,7 +20,7 @@ fi
   reflector
 
 # Stow configuration files.
-stow -d "./configs/" -t "${HOME}/" --no-folding --restow .
+stow -d "./configs/" -t "${HOME}/" --no-folding --restow --adopt .
 
 # Set login shell if not already fish (https://stackoverflow.com/a/11059152).
 fish_path="/usr/bin/fish"

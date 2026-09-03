@@ -3,5 +3,6 @@
     "scrollbar": true,
     "scrollbarchar": " ",
     "softwrap": true,
-    "wordwrap": true
+    "wordwrap": true,
+    "clipboard": "terminal"
 }

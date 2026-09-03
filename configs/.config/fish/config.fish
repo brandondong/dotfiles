@@ -8,7 +8,7 @@ fish_add_path ~/go/bin/
 
 alias lg="lazygit"
 alias edit="msedit"
-alias ls="ls -la -F --color=auto"
+alias ls="ls -F --color=auto"
 
 starship init fish | source
 zoxide init --cmd cd fish | source
