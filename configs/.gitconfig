@@ -2,7 +2,7 @@
 	email = brandondong96@gmail.com
 	name = Brandon
 [core]
-	editor = micro
+	editor = msedit
 	autocrlf = input
 	pager = delta
 	hooksPath = ~/.git-hooks
@@ -17,6 +17,7 @@
 	autoSetupMerge = simple
 [advice]
 	defaultBranchName = false
+	diverging = false
 
 # Delta settings:
 [interactive]

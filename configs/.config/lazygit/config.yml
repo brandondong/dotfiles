@@ -18,7 +18,11 @@ git:
   diffRenderers:
     - command: delta --dark --paging=never
 os:
-  editPreset: 'micro'
+  edit: 'msedit {{filename}}'
+  editAtLine: 'msedit {{filename}}:{{line}}'
+  editAtLineAndWait: 'msedit {{filename}}:{{line}}'
+  openDirInEditor: 'msedit {{dir}}'
+  editInTerminal: true
 update:
   method: never
 notARepository: 'quit'

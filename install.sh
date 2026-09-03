@@ -13,7 +13,7 @@ fi
   fish \
   starship \
   zoxide \
-  micro \
+  msedit \
   stow \
   ripgrep \
   fzf \

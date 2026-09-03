@@ -1,12 +1,14 @@
 set -U fish_greeting
 
-set -x EDITOR micro
-set -x VISUAL micro
+set -x EDITOR msedit
+set -x VISUAL msedit
 
 fish_add_path ~/.cargo/bin/
 fish_add_path ~/go/bin/
 
-alias lg=lazygit
+alias lg="lazygit"
+alias edit="msedit"
+alias ls="ls -la -F --color=auto"
 
 starship init fish | source
 zoxide init --cmd cd fish | source
