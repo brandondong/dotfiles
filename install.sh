@@ -17,7 +17,6 @@ fi
   stow \
   ripgrep \
   fzf \
-  pacman-contrib \
   reflector
 
 # Stow configuration files.
@@ -37,5 +36,10 @@ start_service() {
     sudo systemctl enable --now "$1"
   fi
 }
-start_service paccache.timer
+stop_service() {
+  if systemctl is-enabled "$1" --quiet; then
+    sudo systemctl disable --now "$1"
+  fi
+}
+stop_service paccache.timer # Managed manually in system upgrade script.
 start_service reflector.timer
