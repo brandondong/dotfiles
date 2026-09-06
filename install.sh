@@ -20,7 +20,7 @@ fi
   reflector
 
 # Stow configuration files.
-stow -d "./configs/" -t "${HOME}/" --no-folding --restow --adopt .
+stow -d "home" -t "${HOME}" --no-folding --restow --adopt .
 
 # Set login shell if not already fish (https://stackoverflow.com/a/11059152).
 fish_path="/usr/bin/fish"
@@ -28,9 +28,7 @@ if [ "$(getent passwd "${LOGNAME}" | cut -d: -f7)" != "${fish_path}" ]; then
   chsh -s "${fish_path}"
 fi
 
-# Configure pacman:
-# - Cleaning cache (https://wiki.archlinux.org/title/Pacman#Cleaning_the_package_cache).
-# - Updating mirror list (https://wiki.archlinux.org/title/Reflector#systemd_timer).
+# Enable/disable services.
 start_service() {
   if ! systemctl is-enabled "$1" --quiet; then
     sudo systemctl enable --now "$1"
@@ -41,5 +39,5 @@ stop_service() {
     sudo systemctl disable --now "$1"
   fi
 }
-stop_service paccache.timer # Managed manually in system upgrade script.
-start_service reflector.timer
+start_service reflector.timer # Updating mirror list (https://wiki.archlinux.org/title/Reflector#systemd_timer).
+stop_service paccache.timer   # Managed manually in system upgrade script (https://wiki.archlinux.org/title/Pacman#Cleaning_the_package_cache).

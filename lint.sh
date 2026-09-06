@@ -8,4 +8,4 @@ lint() {
   shfmt -l -w "$@"
 }
 
-lint ./*sh ./configs/.git-hooks/*
+lint ./*sh ./home/.git-hooks/*

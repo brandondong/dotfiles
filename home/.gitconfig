@@ -18,6 +18,8 @@
 [advice]
 	defaultBranchName = false
 	diverging = false
+[rerere]
+	enabled = true
 
 # Delta settings:
 [interactive]
