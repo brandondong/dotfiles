@@ -6,6 +6,11 @@ if [ "$(id -u)" = 0 ]; then
   exit 1
 fi
 
+# Might have cloned during root setup, fix the owner.
+if [ "$(stat -c '%u' .)" = 0 ]; then
+  sudo chown -R "$(id -u):$(id -g)" .
+fi
+
 ./pacman_install.sh \
   git \
   lazygit \
@@ -18,6 +23,11 @@ fi
   ripgrep \
   fzf \
   reflector
+
+if ! locale -a | rg -Fxq 'en_US.utf8'; then
+  echo "en_US.UTF-8 UTF-8" | sudo tee /etc/locale.gen >/dev/null
+  sudo locale-gen
+fi
 
 # Stow configuration files.
 stow -d "home" -t "${HOME}" --no-folding --restow --adopt .
