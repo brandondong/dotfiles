@@ -1,0 +1,12 @@
+[Kate Plugins]
+openlinkplugin=true
+kateprojectplugin=false
+lspclientplugin=false
+externaltoolsplugin=false
+tabswitcherplugin=false
+katekonsoleplugin=false
+textfilterplugin=false
+katefiletreeplugin=false
+
+[MainWindow0]
+Kate-MDI-Sidebar-Visible=false

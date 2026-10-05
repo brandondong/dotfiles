@@ -8,6 +8,7 @@ fi
 
 # Might have cloned during root setup, fix the owner.
 if [ "$(stat -c '%u' .)" = 0 ]; then
+  echo "Setting directory owner to current user."
   sudo chown -R "$(id -u):$(id -g)" .
 fi
 
@@ -25,6 +26,7 @@ fi
   reflector
 
 if ! locale -a | rg -Fxq 'en_US.utf8'; then
+  echo "Generating locales."
   echo "en_US.UTF-8 UTF-8" | sudo tee /etc/locale.gen >/dev/null
   sudo locale-gen
 fi
@@ -35,6 +37,7 @@ stow -d "home" -t "${HOME}" --no-folding --restow --adopt .
 # Set login shell if not already fish (https://stackoverflow.com/a/11059152).
 fish_path="/usr/bin/fish"
 if [ "$(getent passwd "${LOGNAME}" | cut -d: -f7)" != "${fish_path}" ]; then
+  echo "Updating login shell."
   chsh -s "${fish_path}"
 fi
 

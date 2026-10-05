@@ -1,0 +1,10 @@
+[General]
+Startup Session=last
+
+[KTextEditor Renderer]
+Text Font=Courier New,11,-1,5,400,0,0,0,0,0,0,0,0,0,0,1,,0,0
+
+[KTextEditor View]
+Line Modification=false
+Scroll Bar MiniMap=false
+Show Scrollbars=1
