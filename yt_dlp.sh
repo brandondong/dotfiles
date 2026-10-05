@@ -6,6 +6,6 @@ if [ -z "$1" ]; then
   exit 1
 fi
 
-./pacman_install.sh yt-dlp
+./pacman_install.sh yt-dlp ffmpeg
 
 yt-dlp -f "bv*[height<=1080]+ba" --merge-output-format mp4 -o "output.%(ext)s" "$1"
