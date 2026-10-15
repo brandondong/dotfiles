@@ -1,11 +1,4 @@
 #!/bin/sh
 set -e
 
-./pacman_install.sh shellcheck shfmt
-
-lint() {
-  shellcheck "$@"
-  shfmt -l -w "$@"
-}
-
-lint ./*sh ./home/.git-hooks/*
+fd -e sh | xargs ./lint_helper.sh ./home/.git-hooks/*

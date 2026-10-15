@@ -1,3 +1,0 @@
-home/.config/katerc
-home/.local/share/kate/sessions/notes.katesession
-home/.local/state/katestaterc

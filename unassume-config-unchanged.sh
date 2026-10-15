@@ -1,4 +1,4 @@
 #!/bin/sh
 set -e
 
-cat config-unchanged-list.txt | xargs git update-index --no-assume-unchanged --
+git ls-files -- home_assume_unchanged | xargs git update-index --no-assume-unchanged --

@@ -23,6 +23,7 @@ fi
   stow \
   ripgrep \
   fzf \
+  fd \
   reflector
 
 if ! locale -a | rg -Fxq 'en_US.utf8'; then
@@ -33,6 +34,7 @@ fi
 
 # Stow configuration files.
 stow -d "home" -t "${HOME}" --no-folding --restow --adopt .
+stow -d "home_assume_unchanged" -t "${HOME}" --no-folding --restow --adopt .
 
 # Set login shell if not already fish (https://stackoverflow.com/a/11059152).
 fish_path="/usr/bin/fish"
